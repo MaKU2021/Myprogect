@@ -84,3 +84,23 @@ if relay_times >=300:
 today="Sunday"
 if today !="Saturday":
     print("Set alarm at 8:00")
+
+availeble=False
+if availeble:
+    print("Yes it's done")
+else :
+    print("No no no !!!")
+
+number=99
+if number==1:
+    print("It's one")
+else:
+    print("It's not one")
+
+hour=5
+if hour<12:
+    print("good morning!!!")
+elif hour<17:
+    print("Good afternoon!!!")
+else:
+    print("good night!!!")
