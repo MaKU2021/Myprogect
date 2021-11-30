@@ -49,3 +49,38 @@ print(same_average)
 higher_score=test_score_1>test_score_2
 print("id_1 has a higher score: ")
 print(higher_score)
+
+if True:
+    print("Lok tar'o'gar!!!!!!!!")
+
+greet= True
+if greet:
+    print("Асетавалена!!!!")
+is_charged=False
+if is_charged:
+    print("Charged!")
+print("Low battery!!! Alarm!!!")
+
+answer="Taras"
+if answer=="Taras":
+    print(answer +" is correct!!!")
+
+if answer!="military":
+    print(answer+" is wrong!")
+age=65
+if age>=55:
+    print("Discount applied!!!")
+
+score=51
+pass_grade=score>50
+if pass_grade:
+    print(pass_grade)
+song="Король і шут!!!"
+relay_times=365
+if relay_times >=300:
+    print("Моя улюблена група на цьому тижні:")
+    print(song)
+
+today="Sunday"
+if today !="Saturday":
+    print("Set alarm at 8:00")
