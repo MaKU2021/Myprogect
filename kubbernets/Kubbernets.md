@@ -1,27 +1,30 @@
-+ # Команди які необхідні при старті роботи з "Кубіком"
+# Команди які необхідні при старті роботи з "Кубіком"
 
-1. kubectl get pods -o wide - команда для виводу списку PODs з розширеними параметрами
++ __kubectl get pods -o wide__ - команда для виводу списку PODs з розширеними параметрами
 
 ```
 kubectl get pods -o wide
 ```
 ```
-
 NAME                              READY   STATUS    RESTARTS        AGE     IP           NODE       NOMINATED NODE   READINESS GATES
 hello-minikube-6ddfcc9757-4h5d8   1/1     Running   1 (3h16m ago)   25h     172.17.0.5   minikube   <none>           <none>
 nginx                             1/1     Running   0               3h15m   172.17.0.6   minikube   <none>           <none>
 ```
 
-2. kubectl get pods - команда для виводу списку PODs 
++ __kubectl get pods__ - команда для виводу списку PODs
+
 ```
 kubectl get pods 
 ```
+
 ```
 NAME                              READY   STATUS    RESTARTS        AGE
 hello-minikube-6ddfcc9757-4h5d8   1/1     Running   1 (4h22m ago)   26h
 nginx                             1/1     Running   0               4h22m
 ```
-3. kubectl describe pods nginx - команда для опису певного PODa
+
++ __kubectl describe pods nginx__ - команда для опису певного PODa
+
 ```
 Name:         nginx
 Namespace:    default
@@ -74,13 +77,26 @@ Events:
   Normal  Created    24s   kubelet            Created container nginx
   Normal  Started    24s   kubelet            Started container nginx
 ```
-4. kubectl run  pods nginx --image nginx - cтворення POD з образу(image) nginx і надання імені nginx
+
++ __kubectl run  pods nginx --image nginx__- cтворення POD з образу(image) nginx і надання імені nginx
+
 ```
 kubectl run  pods nginx --image nginx
 pod/pods created
 ```
-5. kubectl delete pods nginx - виделення POD 
+
++ __kubectl delete pods nginx__ - виделення POD
+
 ```
 kubectl delete pods nginx
 pod "nginx" deleted
+```
+
++ __kubectl edit pod redis__ - редагування запущеного POD .
+  
++ __kubectl apply -f pod.yml__ - створення POD  з yml файлу
+
+```
+kubectl apply -f ./kubbernets/POD.yml 
+pod/redis configured
 ```
