@@ -5,7 +5,7 @@ metadata:
   labels:
     name: redis
     app: redis
-    tier: frontend
+    tier: front-end
 spec:
   containers:
   - name: redis

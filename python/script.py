@@ -105,3 +105,14 @@ elif hour<17:
 else:
     print("good night!!!")
 
+#Programs repaet the same lines of code over and again to build all sorts of things like the repeated elements in the app
+# One way to repaet lines of code is to  write them over and over again, but it takes a really long time if we want to create larger programs.
+print("and again")
+print("and again")
+print("and again")
+print("and again")
+print("and again")
+print("and again")
+#  To build larger programs and websites, we repeat lines of code using a while loop
+while True: 
+                print("and again")

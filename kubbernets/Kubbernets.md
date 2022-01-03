@@ -1,5 +1,5 @@
 # Команди які необхідні при старті роботи з "Кубіком"
-
+## Робота з PODs
 + __kubectl get pods -o wide__ - команда для виводу списку PODs з розширеними параметрами
 
 ```
@@ -15,9 +15,6 @@ nginx                             1/1     Running   0               3h15m   172.
 
 ```
 kubectl get pods 
-```
-
-```
 NAME                              READY   STATUS    RESTARTS        AGE
 hello-minikube-6ddfcc9757-4h5d8   1/1     Running   1 (4h22m ago)   26h
 nginx                             1/1     Running   0               4h22m
@@ -100,3 +97,63 @@ pod "nginx" deleted
 kubectl apply -f ./kubbernets/POD.yml 
 pod/redis configured
 ```
+___
+## Робота з replicacontroller(rc) & replicaset
++ __kubectl create -f  /home/ts90/DATA/git_reposit/Myprogect/kubbernets/rc_definition.yaml__ - створення реплік-контроллера з файлу .yaml
++ створення реплікасету (replicaset) відбувається таким же чином
+  
+``` 
+kubectl create -f  /home/ts90/DATA/git_reposit/Myprogect/kubbernets/rc_definition.yaml 
+replicationcontroller/myapp-rc created
+```
++ __kubectl get replicationcontroller__ - перевірка працюючих реплік-контроллера
+
+```
+NAME       DESIRED   CURRENT   READY   AGE
+myapp-rc   3         3         3       49s
+```
++ __kubectl get pod__ перевірка робочих PODs 
+```
+kubectl get pod
+NAME                              READY   STATUS    RESTARTS      AGE
+hello-minikube-6ddfcc9757-xr28x   1/1     Running   1 (37m ago)   4d17h
+myapp-rc-k45h4                    1/1     Running   0             66s
+myapp-rc-kbndl                    1/1     Running   0             66s
+myapp-rc-kxhlm                    1/1     Running   0             66s
+nginx2                            1/1     Running   0             33m
+```
++ kubectl delete rc myapp-rc - видалення PODs за назвою replicacontroller(rc)
+
+```
+ kubectl delete rc myapp-rc
+replicationcontroller "myapp-rc" deleted
+```
+### Відмінності replicaset 
++ __kubectl create -f  /home/ts90/DATA/git_reposit/Myprogect/kubbernets/replicaset-denition.yml - створення реплікасету  з .yml файлу 
+```
+kubectl create -f  /home/ts90/DATA/git_reposit/Myprogect/kubbernets/replicaset-denition.yml 
+replicaset.apps/myapp-replicaset created
+```
++ kubectl delete replicaset myapp-rc-  видалення PODs за назвою replicaset
+```
+kubectl delete replicaset myapp-rc
+replicaset.apps "myapp-rc" deleted
+```
++ kubectl replace -f  /home/ts90/DATA/git_reposit/Myprogect/kubbernets/replicaset-denition.yml - перезапуск реплікасету після його(файлу) змінення.
+```
+kubectl replace -f  /home/ts90/DATA/git_reposit/Myprogect/kubbernets/replicaset-denition.yml 
+replicaset.apps/myapp-replicaset replaced
+```
++ __kubectl scale --replicas=7 -f ./DATA/git_reposit/Myprogect/kubbernets/replicaset-denition.yml__ - змінення параметрів реплікасету зі зміною файлу .yml
+
+```
+kubectl scale --replicas=7 -f ./DATA/git_reposit/Myprogect/kubbernets/replicaset-denition.yml 
+replicaset.apps/myapp-replicaset scaled
+```
++ __kubectl scale --replicas=9 replicaset myapp-replicaset - зміна параметру реплікасету на льоту (без збереження в файл)
+
+```
+kubectl scale --replicas=9 replicaset myapp-replicaset
+replicaset.apps/myapp-replicaset scaled
+```
+
